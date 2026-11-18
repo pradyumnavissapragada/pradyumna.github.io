@@ -6,12 +6,10 @@ const hero=document.querySelector('.hero');
 const mission=document.querySelector('.mission');
 const cards=[...document.querySelectorAll('.pathway-card,.brief,.impact-card,.framework-card,.project-card')];
 if(!hero||!mission)return;
-const toolbar=document.createElement('div');toolbar.className='immersive-toolbar';
-const toggle=document.createElement('button');toggle.type='button';toggle.className='immersive-toggle';toggle.textContent='3D effects: On';toggle.setAttribute('aria-label','Toggle interactive 3D effects');
-toolbar.append(toggle);
-const actions=document.querySelector('.hero .actions');if(actions)actions.insertAdjacentElement('afterend',toolbar);
+const toggle=document.querySelector('header .immersive-toggle');
+if(!toggle)return;
 let enabled=!reduced.matches&&!mobile.matches;
-const apply=()=>{document.body.classList.toggle('immersive-off',!enabled);toggle.setAttribute('aria-pressed',String(enabled));toggle.textContent='3D effects: '+(enabled?'On':'Off');};
+const apply=()=>{document.body.classList.toggle('immersive-off',!enabled);toggle.setAttribute('aria-pressed',String(enabled));toggle.setAttribute('aria-label',enabled?'Disable 3D effects':'Enable 3D effects');toggle.title='3D effects: '+(enabled?'on':'off');toggle.textContent=enabled?'◈':'◇';};
 apply();
 toggle.addEventListener('click',()=>{enabled=!enabled;apply();if(!enabled)resetAll();});
 function reset(el){el.style.setProperty('--tilt-x','0deg');el.style.setProperty('--tilt-y','0deg');}
