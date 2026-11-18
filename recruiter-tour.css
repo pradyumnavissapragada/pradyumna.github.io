@@ -1,0 +1,26 @@
+/* Recruiter guided tour: clear, keyboard accessible and mobile friendly */
+.tour-launch{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent);border-radius:999px;padding:11px 18px;background:transparent;color:var(--accent);font-size:12px;font-weight:800;cursor:pointer}
+.tour-launch:hover,.tour-launch:focus-visible{background:var(--accent);color:var(--accent-ink)}
+.tour-dialog{width:min(560px,calc(100vw - 28px));max-height:min(88vh,780px);overflow:auto;border:1px solid var(--line);border-radius:24px;background:var(--panel);color:var(--ink);padding:0;box-shadow:0 32px 100px rgba(0,0,0,.48)}
+.tour-dialog::backdrop{background:rgba(3,9,17,.78);backdrop-filter:blur(7px)}
+.tour-shell{padding:clamp(22px,4vw,36px)}
+.tour-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.tour-kicker{font-size:11px;letter-spacing:1.6px;font-weight:800;color:var(--accent)}
+.tour-close{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:50%;width:36px;height:36px;font-size:22px;line-height:1}
+.tour-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:28px}
+.tour-progress span{height:5px;border-radius:10px;background:var(--line)}
+.tour-progress span.active{background:var(--accent)}
+.tour-step{font-size:12px;color:var(--muted);margin-bottom:8px}
+.tour-heading{font-size:clamp(27px,4vw,38px);letter-spacing:-1.5px;line-height:1.15;margin-bottom:15px}
+.tour-copy{font-size:14px;line-height:1.8;margin-bottom:22px}
+.tour-evidence{border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:18px;margin-bottom:20px}
+.tour-evidence strong{display:block;font-size:14px;margin-bottom:7px}.tour-evidence p{font-size:12px;line-height:1.7}
+.tour-links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.tour-links a{font-size:12px;color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+.tour-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tour-actions button{border-radius:999px;padding:10px 17px;font-weight:800;font-size:12px}
+.tour-primary{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.tour-secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.tour-actions .tour-skip{margin-left:auto;background:transparent;border:0;color:var(--muted);padding:10px}
+.tour-launch:focus-visible,.tour-dialog button:focus-visible,.tour-dialog a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.tour-dialog::backdrop{backdrop-filter:none}}
