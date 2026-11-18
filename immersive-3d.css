@@ -1,0 +1,30 @@
+/* Progressive 3D enhancement: accessible, responsive and GPU-friendly. */
+:root{--depth-glow:rgba(199,245,139,.13)}
+body{overflow-x:clip}
+.hero{position:relative;isolation:isolate;perspective:1200px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at var(--pointer-x,75%) var(--pointer-y,30%),var(--depth-glow),transparent 38%);transition:opacity .3s}
+.hero-grid{transform-style:preserve-3d}
+.hero-copy{position:relative;z-index:1}
+.hero h1{filter:drop-shadow(0 14px 35px rgba(0,0,0,.14))}
+.mission{transform-style:preserve-3d;transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;will-change:transform;box-shadow:0 26px 65px rgba(0,0,0,.24)}
+.mission:hover{box-shadow:0 38px 90px rgba(0,0,0,.32)}
+.mission-head,.mission-foot,.pipeline,.mission>.motion-toggle{transform:translateZ(24px)}
+.mission .orbit{transform-style:preserve-3d;transform:translateZ(45px)}
+.mission .core{box-shadow:0 0 40px rgba(199,245,139,.13),inset 0 0 28px rgba(199,245,139,.08)}
+.pathway-card,.brief,.impact-card,.framework-card,.project-card{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(var(--lift,0px));transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s;transform-style:preserve-3d}
+.pathway-card:hover{--lift:-7px;box-shadow:0 22px 45px rgba(0,0,0,.18)}
+.pathway-card h3,.pathway-card strong{transform:translateZ(22px)}
+.pathway-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%),rgba(199,245,139,.12),transparent 55%);opacity:0;transition:opacity .25s}
+.pathway-card:hover::after{opacity:1}
+.immersive-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.immersive-toggle{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:var(--panel);color:var(--ink);font-size:12px;font-weight:700;transition:background .2s}
+.immersive-toggle:hover,.immersive-toggle:focus-visible{border-color:var(--accent)}
+.immersive-toggle[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.immersive-hint{font-size:11px;color:var(--muted)}
+.immersive-reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.immersive-reveal.is-visible{opacity:1;transform:translateY(0)}
+body.immersive-off .mission,body.immersive-off .pathway-card,body.immersive-off .brief,body.immersive-off .impact-card,body.immersive-off .framework-card,body.immersive-off .project-card{transform:none!important;will-change:auto}
+body.immersive-off .hero::before{opacity:0}
+body.immersive-off .immersive-reveal{opacity:1;transform:none;transition:none}
+@media (max-width:800px){.mission,.pathway-card,.brief,.impact-card,.framework-card,.project-card{transform:none!important;will-change:auto}.hero::before{opacity:.45}.immersive-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.mission,.pathway-card,.brief,.impact-card,.framework-card,.project-card,.immersive-reveal{transform:none!important;transition:none!important;animation:none!important}.immersive-reveal{opacity:1}.hero::before{display:none}}
