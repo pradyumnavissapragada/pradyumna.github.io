@@ -1,6 +1,6 @@
 # Pradyumna Vissapragada — Portfolio
 
-Website: https://pradyumnavissapragada.github.io/pradyumna.github.io/
+Website: https://pradyumnavissapragada.github.io/
 
 ## Recruiter assistant
 
