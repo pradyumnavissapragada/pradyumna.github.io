@@ -4,13 +4,6 @@ function section(cls,title,subtitle){const root=el('div',cls);const h=el('h3',''
 function button(cls,label){const b=el('button',cls,label);b.type='button';return b;}
 function details(){const d=el('div','immersive-detail');d.setAttribute('aria-live','polite');return d;}
 function update(d,kicker,title,body){d.replaceChildren(el('span','eyebrow',kicker),el('h4','',title),el('p','',body));}
-const experience=document.getElementById('experience');
-if(experience){const root=section('experience-3d','Explore the career journey','Select a milestone to explore the evolution from automation engineering to quality and release leadership.');const stage=el('div','journey-stage'),track=el('div','journey-track'),detail=details();const milestones=[
-{year:'2015–2018',name:'Accenture',title:'Test Automation Engineer',desc:'Built foundations in repeatable end-to-end testing, critical user journeys and automation-led regression.'},
-{year:'2018–2019',name:'Nisum',title:'Automation Team Lead',desc:'Expanded into team guidance, technical reviews, shared automation ownership and early quality feedback.'},
-{year:'2019–2020',name:'Synechron',title:'Senior Automation Test Engineer',desc:'Focused on behavior-driven automation, regression efficiency and cross-functional engineering collaboration.'},
-{year:'2020–2026',name:'LivePerson',title:'Senior SDET / QA & Release Lead',desc:'Advanced from hands-on web, API and mobile quality engineering into test strategy, release readiness, risk-based decisions and global coordination.'}];
-const nodes=milestones.map((m,i)=>{const b=button('journey-node','');b.append(el('span','',m.year),el('strong','',m.name));b.addEventListener('click',()=>{nodes.forEach(n=>n.setAttribute('aria-pressed',String(n===b)));update(detail,m.year,m.title,m.desc);});track.append(b);return b;});stage.append(track,detail);root.append(stage);experience.querySelector('.section-heading')?.insertAdjacentElement('afterend',root);nodes[3].click();}
 const framework=document.getElementById('framework');
 if(framework){const root=section('architecture-3d','Explore the automation architecture','Select a layer to understand how UI and API checks feed actionable release evidence.');const stage=el('div','arch-stage'),diagram=el('div','arch-diagram'),detail=details();const layers=[
 {num:'01',name:'UI / E2E',sub:'Playwright + page objects',description:'Browser scenarios exercise critical user flows through reusable page objects and resilient locators.'},
