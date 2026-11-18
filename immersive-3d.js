@@ -8,8 +8,7 @@ const cards=[...document.querySelectorAll('.pathway-card,.brief,.impact-card,.fr
 if(!hero||!mission)return;
 const toolbar=document.createElement('div');toolbar.className='immersive-toolbar';
 const toggle=document.createElement('button');toggle.type='button';toggle.className='immersive-toggle';toggle.textContent='3D effects: On';toggle.setAttribute('aria-label','Toggle interactive 3D effects');
-const hint=document.createElement('span');hint.className='immersive-hint';hint.textContent='Move your pointer over the cards to explore';
-toolbar.append(toggle,hint);
+toolbar.append(toggle);
 const actions=document.querySelector('.hero .actions');if(actions)actions.insertAdjacentElement('afterend',toolbar);
 let enabled=!reduced.matches&&!mobile.matches;
 const apply=()=>{document.body.classList.toggle('immersive-off',!enabled);toggle.setAttribute('aria-pressed',String(enabled));toggle.textContent='3D effects: '+(enabled?'On':'Off');};
