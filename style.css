@@ -122,3 +122,12 @@ li{margin:7px 0}
 
 /* Review-only source links for the independent Playwright repository */
 .framework-source-links{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 10px}.framework-source-links a{display:inline-flex;align-items:center;min-height:43px;padding:10px 15px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--panel);text-decoration:none;font-size:13px;font-weight:700}.framework-source-links a:hover,.framework-source-links a:focus-visible{border-color:var(--accent)}.framework-evidence-note{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* Hero metric capsules: three separate oval cards with preserved count-up animation. */
+.hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px;align-items:stretch}
+.hero-stats>div{min-width:0;min-height:112px;padding:19px 12px 17px;border:1px solid var(--line);border-radius:999px;background:linear-gradient(145deg,var(--panel),var(--panel2));box-shadow:0 12px 30px rgba(0,0,0,.09);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.hero-stats>div:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 16px 36px rgba(0,0,0,.15)}
+.hero-stats strong{color:var(--accent);font-size:clamp(25px,2.7vw,36px);font-variant-numeric:tabular-nums;line-height:1.05}
+.hero-stats span{font-size:10px;line-height:1.35;letter-spacing:.15px;overflow-wrap:break-word}
+@media(max-width:540px){.hero-stats{gap:7px;margin-top:26px}.hero-stats>div{min-height:99px;padding:14px 7px}.hero-stats strong{font-size:25px}.hero-stats span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.hero-stats>div{transition:none}.hero-stats>div:hover{transform:none}}
